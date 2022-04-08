@@ -16,6 +16,7 @@ opencv-python = "^4.5.5"
 tensorflow-gpu = "^2.8.0"
 xgboost = "^1.5.2"
 lightgbm = "^3.3.2"
+shap = "^0.40.0"
 
 [tool.poetry.dev-dependencies]
 black = "^22.3.0"
