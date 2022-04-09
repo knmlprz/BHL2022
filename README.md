@@ -1,10 +1,10 @@
 # INFRAPRICE
 
-Stworzyliśmy model przewidujący ceny działek w każdym przedziale cenowym. Natomiast my skupiamy się na konsumentach zainteresowanych w kupnie działki w okazyjnych cenach. Potrafimy przewidzieć jaka będzie jej cena, co pozwoli dokonać najlepszego wyboru i nie tracić czasu na licytacjach, których nie można wygrać.
+Stworzyliśmy model przewidujący ceny działek w każdym przedziale cenowym. Natomiast my skupiamy się na konsumentach zainteresowanych w kupnie działki w okazyjnych cenach. Potrafimy przewidzieć, jaka będzie jej cena, co pozwoli dokonać najlepszego wyboru i nie tracić czasu na licytacjach, których nie można wygrać.
 
-## Oczyszczene i redukcja wymiarowości 
+## Oczyszczenie i redukcja wymiarowości 
 Oczyszczanie danych to najważniejsza część zadania. Bez dobrze przygotowanych danych, modele
-nie dadzą nam wiarygodnych wyników. Tabela przedstawiająca czym są kolumny znajduje się poniżej:
+nie dadzą nam wiarygodnych wyników. Tabela przedstawiająca czym są kolumny, znajduje się poniżej:
 
 | Cecha              | Objaśnienie                                                                                                                                               |
 |--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
