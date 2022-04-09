@@ -35,11 +35,34 @@ Część tych zmiennych zostało odrzuconych na starcie. Były to m. in.:
 - Council District - id, odrzucone po stworzeniu pierwszych modeli
 - Census Tract - id, odrzucone po stworzeniu pierwszych modeli
 
-Kolejne odrzuciliśmy wykorzysując metody Feature Selection (SFS) już tworząc modele oraz dokonując ich analalizy (jej cześć znajduje się w pliku `EDA_Kolumn.ipynb`. Z do ciekawszych zależności można zaliczyć:
+Kolejne odrzuciliśmy wykorzysując metody Feature Selection (SFS) już tworząc modele oraz dokonując 
+ich analalizy (jej cześć znajduje się w pliku `EDA_Kolumn.ipynb`. Z do ciekawszych zależności można zaliczyć:
 - Działki, których Całkowita wycena była niewielka, sprzedawane były za kilkukrotnie większą cenę
 - W surowym zbiorze danych w dwóch rekordach znajdował się błąd. Rekordy te były przemieszane.
 
 ![Wykres](docs/avtot_fullval.png)
+
+## Feature extraction
+
+### Dystans od gęsto zaludnionych obszarów
+
+![Wykres szerokości i długości geograficznej działek](docs/latlong.png)
+
+W danych o długości i szerekości geograficznej, zauważyliśmy iż większość próbek znajduje
+się w dużych aglomeracjach. Użyliśmy więc algorytmu DBSCAN, który idealnie działa na gęstych danych.
+
+![Wykres szerokości i długości geograficznej działek z oznaczonymi klastrami](docs/clusters.png)
+
+Następnie dla tych klastrów obliczyliśmy centroidy i z ich pomocą, każdej próbce przypisaliśmy cechy
+`numer klastra` oraz `dystans od najbliższego centroida`.
+
+### Średna wartość sąsiadujących działek
+
+Obliczyliśmy średnią wartość działki w każdym z bloków i tą wartosć zmapowaliśmy do poszczególnych bloków.
+
+### Średnia wartość działki w NTA
+
+Podobnie jak `średna wartość sąsiadujących działek`, lecz agregowaliśmy po NTA.
 
 ## Wybór i wytrenowanie modelu uczenia maszynowego
 
