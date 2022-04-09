@@ -1,7 +1,7 @@
 # INFRAPRICE
 ## Oczyszczene i redukcja wymiarowości 
 Oczyszczanie danych to najważniejsza część zadania. Bez dobrze przygotowanych danych, modele
-nie dadzą nam wiarygodnych wyników. Tabela przedstawiająca czym są kolumny znajduje się poniżej:
+nie będą wstanie wykonywać poprawnych predykcji. Tabela przedstawiająca czym są kolumny, znajduje się poniżej:
 
 | Cecha              | Objaśnienie                                                                                                                                               |
 |--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -66,7 +66,7 @@ Podobnie jak `średna wartość sąsiadujących działek`, lecz agregowaliśmy p
 
 ## Wybór i wytrenowanie modelu uczenia maszynowego
 
-Do trenowania i wyboru uczenia wykorzystaliśmy biblioteke Pycaret. Pozwala na tranowanie
+Do trenowania i wyboru uczenia wykorzystaliśmy biblioteke Pycaret. Pozwala na trenowanie
 wielu modeli na raz, automatycznie dokonuje ich oceny w wybranym zadaniu (wybierać można spośrod
 klasyfikacji i regresjii) i dokonuje automatycznej optymalizacji ich parametrów.
 
@@ -77,7 +77,7 @@ Ponad to wszystko, genrowanie są informacje o najlepszym modelu. Są to:
 - Feature Selection (ile cech potrzebne było do osiągnęcia
 
 Ze względu na charakter danych, a mianowicie to iż przewidywana zmienna
-miała rozstęp rzędu 10^8 zdecydowaliśmy się na użycie **dwóch modeli uczenia maszynowego** 
+miała rozstęp rzędu 10^8, zdecydowaliśmy się na użycie **dwóch modeli uczenia maszynowego** 
 i połączenie ich. Problem rozpatrzyliśmy oddzielnie dla działek o małej i dużej wartości.
 
 
@@ -88,7 +88,6 @@ Pycaret przetestował ponad 10 modeli z róznymi parametrami, oto kilka najlepsz
 |       | Model                        | MAE             | MSE                    | RMSE            | R2         | RMSLE      | MAPE       | TT (Sec) |
 |-------|------------------------------|-----------------|------------------------|-----------------|------------|------------|------------|----------|
 | rf       | _Random Forest Regressor_         | 91879.6835     | **75157950525.0227** | **271755.2913** | **0.7612** | 0.5803     | 0.1921     | 0.1110 |
-|----------|-----------------------------------|----------------|----------------------|-----------------|------------|------------|------------|--------|
 | gbr      | _Gradient Boosting Regressor_     | 109940.0361    | 77655594169.5400     | 275605.0230     | 0.7576     | 1.6571     | 0.6916     | 0.0590 |
 | et       | _Extra Trees Regressor_           | **90204.1545** | 77509515134.7706     | 275308.5967     | 0.7528     | 0.4619     | **0.1658** | 0.0820 |
 | lightgbm | _Light Gradient Boosting Machine_ | 105504.7647    | 78415199829.5380     | 277671.9795     | 0.7518     | 1.6058     | 0.4278     | 0.0160 |
