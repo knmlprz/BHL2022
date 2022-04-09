@@ -128,7 +128,7 @@ Dla modeli o małych wartościach najważniejszymi cechami są:
 - `LTFRONT` - Szerokość działki
 - `FTDEPTH` - Głębokość działi
 
-Dla klientóœ szukających taniego mieszkania, ważnym jest, aby był to lokal
+Dla klientów szukających taniego mieszkania, ważnym jest, aby był to lokal
 mieszkalny, w centrum popularnej dzielnicy. Działka musi też mieć odpowiednią wielkość.
 
 ### Objaśnianie modelu dla działek o dużej wartości
