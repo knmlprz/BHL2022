@@ -77,7 +77,7 @@ Ponad to wszystko, genrowanie są informacje o najlepszym modelu. Są to:
 - Hiperparamery
 - Reszty modelu 
 - Błędy predykcji
-- Feature Selection (ile cech potrzebne było do osiągnęcia
+- Feature Selection (ile cech potrzebne było do osiągnęcia)
 
 Ze względu na charakter danych, a mianowicie to iż przewidywana zmienna
 miała rozstęp rzędu 10^8 zdecydowaliśmy się na użycie **dwóch modeli uczenia maszynowego**
