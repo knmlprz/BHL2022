@@ -46,12 +46,12 @@ ich analalizy (jej cześć znajduje się w pliku `EDA_Kolumn.ipynb`. Z do ciekaw
 
 ### Dystans od gęsto zaludnionych obszarów
 
-![Wykres szerokości i długości geograficznej działek](docs/latlong.png)
+![Wykres szerokości i długości geograficznej działek](docs/clusters.png)
 
 W danych o długości i szerekości geograficznej, zauważyliśmy iż większość próbek znajduje
 się w dużych aglomeracjach. Użyliśmy więc algorytmu DBSCAN, który idealnie działa na gęstych danych.
 
-![Wykres szerokości i długości geograficznej działek z oznaczonymi klastrami](docs/clusters.png)
+![Wykres szerokości i długości geograficznej działek z oznaczonymi klastrami](docs/latlong.png)
 
 Następnie dla tych klastrów obliczyliśmy centroidy i z ich pomocą, każdej próbce przypisaliśmy cechy
 `numer klastra` oraz `dystans od najbliższego centroida`.
