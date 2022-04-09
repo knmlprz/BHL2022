@@ -1,4 +1,7 @@
 # INFRAPRICE
+
+Stworzyliśmy model przewidujący ceny działek w każdym przedziale cenowym. Natomiast my skupiamy się na konsumentach zainteresowanych w kupnie działki w okazyjnych cenach. Potrafimy przewidzieć jaka będzie jej cena, co pozwoli dokonać najlepszego wyboru i nie tracić czasu na licytacjach, których nie można wygrać.
+
 ## Oczyszczene i redukcja wymiarowości 
 Oczyszczanie danych to najważniejsza część zadania. Bez dobrze przygotowanych danych, modele
 nie dadzą nam wiarygodnych wyników. Tabela przedstawiająca czym są kolumny znajduje się poniżej:
@@ -77,7 +80,7 @@ Ponad to wszystko, genrowanie są informacje o najlepszym modelu. Są to:
 - Feature Selection (ile cech potrzebne było do osiągnęcia
 
 Ze względu na charakter danych, a mianowicie to iż przewidywana zmienna
-miała rozstęp rzędu 10^8 zdecydowaliśmy się na użycie **dwóch modeli uczenia maszynowego** 
+miała rozstęp rzędu 10^8 zdecydowaliśmy się na użycie **dwóch modeli uczenia maszynowego**
 i połączenie ich. Problem rozpatrzyliśmy oddzielnie dla działek o małej i dużej wartości.
 
 
@@ -88,7 +91,6 @@ Pycaret przetestował ponad 10 modeli z róznymi parametrami, oto kilka najlepsz
 |       | Model                        | MAE             | MSE                    | RMSE            | R2         | RMSLE      | MAPE       | TT (Sec) |
 |-------|------------------------------|-----------------|------------------------|-----------------|------------|------------|------------|----------|
 | rf       | _Random Forest Regressor_         | 91879.6835     | **75157950525.0227** | **271755.2913** | **0.7612** | 0.5803     | 0.1921     | 0.1110 |
-|----------|-----------------------------------|----------------|----------------------|-----------------|------------|------------|------------|--------|
 | gbr      | _Gradient Boosting Regressor_     | 109940.0361    | 77655594169.5400     | 275605.0230     | 0.7576     | 1.6571     | 0.6916     | 0.0590 |
 | et       | _Extra Trees Regressor_           | **90204.1545** | 77509515134.7706     | 275308.5967     | 0.7528     | 0.4619     | **0.1658** | 0.0820 |
 | lightgbm | _Light Gradient Boosting Machine_ | 105504.7647    | 78415199829.5380     | 277671.9795     | 0.7518     | 1.6058     | 0.4278     | 0.0160 |
@@ -109,3 +111,30 @@ Podobnie jak wcześniej, Pycaret znalazł modele i sprawdził ich poprawnosć:
 | en    | Elastic Net                  | 377227.6426     | 2479064188168.2002     | 1345804.7527    | 0.9828     | 0.3933     | 0.2488     | 0.1120   |
 | lr    | Linear Regression            | 414664.8022     | 2574323937028.1821     | 1385260.6314    | 0.9815     | 0.4597     | 0.2881     | 0.1740   |
 | et    | Extra Trees Regressor        | 359066.2662     | 31955327371674.9062    | 2610013.3438    | 0.9724     | **0.1719** | **0.0542** | 0.0590   |
+
+## Zrozumienie i interpretacja wyników
+
+Pycaret, zwraca także `ważność cech` dla niemalże wszystkich modeli.
+
+### Objaśnianie modelu dla działek o małej wartości
+
+![Ważność cech dla małych wartości działe](docs/small-featureimportance.png)
+
+Dla modeli o małych wartościach najważniejszymi cechami są:
+- `TAXCLASS_1` - działki z lokalami mieszkalnymi
+- `AVTOT` - całkowita wartość działki
+- `BORO_3` - BROOKLYN
+- `dist` - Odległość od centrum (BROOKLYNu)
+- `LTFRONT` - Szerokość działki
+- `FTDEPTH` - Głębokość działi
+
+Dla klientóœ szukających taniego mieszkania, ważnym jest, aby był to lokal
+mieszkalny, w centrum popularnej dzielnicy. Działka musi też mieć odpowiednią wielkość.
+
+### Objaśnianie modelu dla działek o dużej wartości
+
+![Ważność cech dla dużych wartości działe](docs/big-featureimportance.png)
+
+Klienci wydający dużo pieniędzy na działkę, cenią sobie zupełnie inne rzeczy. Zaletą jest aby był to lokal mieszkalny lub pustostan. Wartość działki w ich oczach zmiejsza się, jeżeli jest na niej blok. Lokalizacja w ścisłym centrum nie ma dla nich znaczenia.
+
+![Wsþółczynniki liniowe modelu](docs/lincoef.png)
