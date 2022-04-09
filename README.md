@@ -27,3 +27,28 @@ nie dadzą nam wiarygodnych wyników. Tabela przedstawiająca czym są kolumny z
 | Census Tract       | kategoria (ID obszaru spisowego)                                                                                                                          |
 | BIN                | NIEZNANA (prawdopodobnie przekształcenie BBL)                                                                                                             |
 
+
+Część tych zmiennych zostało odrzuconych na starcie. Były to m. in.: 
+- POSTCODE
+- BIN - nie wiemy jak została stworzona
+- Community Board - id, odrzucone po stworzeniu pierwszych modeli
+- Council District - id, odrzucone po stworzeniu pierwszych modeli
+- Census Tract - id, odrzucone po stworzeniu pierwszych modeli
+
+Kolejne odrzuciliśmy wykorzysując metody Feature Selection (SFS) już tworząc modele oraz dokonując ich analalizy (jej cześć znajduje się w pliku `EDA_Kolumn.ipynb`. Z do ciekawszych zależności można zaliczyć:
+- Działki, których Całkowita wycena była niewielka, sprzedawane były za kilkukrotnie większą cenę
+- W surowym zbiorze danych w dwóch rekordach znajdował się błąd. Rekordy te były przemieszane.
+
+![Wykres](docs/avtot_fullval.png)
+
+## Wybór i wytrenowanie modelu uczenia maszynowego
+
+Do trenowania i wyboru uczenia wykorzystaliśmy biblioteke Pycaret. Pozwala na tranowanie
+wielu modeli na raz, automatycznie dokonuje ich oceny w wybranym zadaniu (wybierać można spośrod
+klasyfikacji i regresjii) i dokonuje automatycznej optymalizacji ich parametrów.
+
+Ponad to wszystko, genrowanie są informacje o najlepszym modelu. Są to:
+- Hiperparamery
+- Reszty modelu 
+- Błędy predykcji
+- Feature Selection (ile cech potrzebne było do osiągnęcia
